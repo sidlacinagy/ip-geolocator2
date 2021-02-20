@@ -4,6 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>hu.unideb.inf</groupId>
 	<artifactId>ip-geolocator</artifactId>
+<distributionManagement>
+  <site>
+    <id>shrek</id>
+    <url>scp://nagylaci0803@shrek.unideb.hu:2222/home/nagylaci0803/public_html/${project.artifactId}</url>
+  </site>
+</distributionManagement>
 	<version>1.0</version>
 	<description>Java class library for obtaining geolocation information of an IP address.</description>
 	<developers>
@@ -26,7 +32,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>30.0-jre</version>
+			<version>30.1-jre</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -50,6 +56,11 @@
 			<version>1.18.18</version>
 			<scope>compile</scope>
 		</dependency>
+<dependency>
+  <groupId>com.squareup.moshi</groupId>
+  <artifactId>moshi</artifactId>
+  <version>1.11.0</version>
+</dependency>
 
 	</dependencies>
 	<build>
@@ -67,6 +78,23 @@
 					<mainClass>${mainClass}</mainClass>
 				</configuration>
 			</plugin>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-site-plugin</artifactId>
+  <version>3.9.1</version>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven.wagon</groupId>
+      <artifactId>wagon-ssh</artifactId>
+      <version>3.4.2</version>
+    </dependency>
+  </dependencies>
+</plugin>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-dependency-plugin</artifactId>
+  <version>3.1.2</version>
+</plugin>
 
 			<plugin>
 				<groupId>org.projectlombok</groupId>
@@ -81,6 +109,11 @@
 					</execution>
 				</executions>
 			</plugin>
+<plugin>
+  <groupId>fr.jcgay.maven.plugins</groupId>
+  <artifactId>buildplan-maven-plugin</artifactId>
+  <version>1.4</version>
+</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
