@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"geolocator","l":"GeoLocation"},{"p":"geolocator","l":"GeoLocator"}];updateSearchResults();
